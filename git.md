@@ -128,4 +128,112 @@
     ```bash
         git add [file or directory]
     ```
+- 提交更改
+
+    ```bash
+        git commit -m "commit message"
+    ```
+- 查看日志
+
+    ```bash
+        git log
+    ```
+## 4. 分支管理
+
+- 创建分支
+
+    ```bash
+        git branch [branch-name]
+    ```
+- 切换分支
+
+    ```bash
+        git checkout [branch-name]
+    ```
+- 合并分支
+
+    ```bash
+        git merge [branch-name]
+    ```
+- 删除分支
+
+    ```bash
+        git branch -d [branch-name]
+    ```
+- 查看所有分支
+
+    ```bash
+        git branch -a
+    ```
+## 5. 远程仓库操作
+
+- 添加远程仓库
+
+    ```bash
+        git remote add [name] [url]
+    ```
+
+0 获取远程更改
+
+    ```bash
+        git fetch [remote-name]
+    ```
+
+- 推送到远程
+
+    ```bash
+        git push [remote-name] [branch-name]
+    ```
+
+- 从远程拉取
+
+    ```bash
+        git pull [remote-name] [branch-name]
+    ```
+
+- 查看远程仓库
+
+    ```bash
+        git remote -v
+    ```
+
+## 6. 高级特性
+
+- 历史回滚
+
+    ```bash
+        git reset [commit]
+    ```
+
+- 使用 git stash 临时保存更改
+
+    ``` bash
+        git stash save "description"
+    ```
+
+- 交互式rebase
+
+    ```bash
+        git rebase -i [base-commit]
+    ```
+
+- Cherry-pick 提取提交
+
+    ```bash
+        git cherry-pick [commit]
+    ```
+- 使用 .gitignore 忽略文件
+
+    - 在项目根目录下创建 .gitignore 文件。
+    - 添加要忽略的文件或文件夹名。
+
+## 7. 合作与团队工作流
+
+- Fork 和 Pull Request
+
+    - 在GitHub上对原始仓库进行fork。
+    - 克隆fork的仓库到本地。
+    - 创建一个新的分支进行更改。
+    - 提交更改并推送到fork的仓库。
+    - 在GitHub上提交一个pull request给原始仓库。
 
