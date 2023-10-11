@@ -25,44 +25,44 @@
     - 提交更改：`git commit`
     - 查看日志：`git log`
 
-4. **分支管理**
+4. [**分支管理**](#4-分支管理)
     - 创建分支：`git branch`
     - 切换分支：`git checkout`
     - 合并分支：`git merge`
     - 删除分支：`git branch -d`
     - 查看所有分支：`git branch -a`
 
-5. **远程仓库操作**
+5. [**远程仓库操作**](#5-远程仓库操作)
     - 添加远程仓库：`git remote add`
     - 获取远程更改：`git fetch`
     - 推送到远程：`git push`
     - 从远程拉取：`git pull`
     - 查看远程仓库：`git remote -v`
 
-6. **高级特性**
+6. [**高级特性**](#6-高级特性)
     - 历史回滚：`git reset`
     - 使用 `git stash` 临时保存更改
     - 交互式rebase: `git rebase -i`
     - Cherry-pick 提取提交
     - 使用 `.gitignore` 忽略文件
 
-7. **合作与团队工作流**
+7. [**合作与团队工作流**](#7-合作与团队工作流)
     - Fork 和 Pull Request
     - Feature Branch 工作流
     - Gitflow 工作流
     - Centralized Workflow
 
-8. **常见问题与解决方法**
+8. [**常见问题与解决方法**](#8-常见问题与解决方法)
     - 解决合并冲突
     - 撤销错误操作
     - 找回误删的提交
 
-9. **Git配合工具与服务**
+9. [**Git配合工具与服务**](#9-git配合工具与服务)
     - 使用 GitHub/GitLab/Bitbucket
     - 图形化客户端推荐（如 SourceTree, GitKraken）
     - 配合CI/CD工具
 
-10. **附录与推荐资源**
+10. [**附录与推荐资源**](#10-附录与推荐资源)
     - Git命令速查表
     - 推荐书籍与在线教程
     - 相关社区与论坛
@@ -107,6 +107,9 @@
     - 分布式（如Git）：每个开发者拥有仓库的完整副本。
     - 集中式（如SVN）：单一的中心化版本库，开发者只获取最新的快照。
 
+- .git目录结构：
+    ![gitDirectory](./images/gitDirectory.png)
+
 ## 2. Git基础设置
 
 - 安装Git
@@ -121,6 +124,33 @@
         git config --global user.name "your name"
         git config --global user.email "your@email.com"
     ```
+- 第一次使用ssh推送本地仓库到github仓库
+    > 如果是第一次使用ssh推送，需要设置ssh-key
+    1. 切换到~/.ssh/
+
+        ```bash
+            cd ~/.ssh/
+        ```
+
+    2. ls 查看信息，没有id_rsa和id_rsa.pub文件表明没有创建ssh-key，用下面命令创建ssh-key:
+
+        ```bash
+            # -t：使用ras加密方式，-b：4096大小
+            ssh-keygen -t rsa -b 4096
+        ```
+        `tips`：命令执行后，第一次创建ssh-key一路默认回车即可
+
+    3. ls 查看信息，这时我们可以看见多了id_rsa和id_rsa.pub文件
+
+        - id_rsa：私钥文件，谁也不要给
+        - id_rsa.pub: 公钥文件
+
+    4. 在github配置ssh-key
+
+        - 打开github，点击头像，点击Settings
+        - 点击SSH and GPG keys 按钮
+        - 新建ssh-key，粘贴复制的公钥内容到key内容框，填一个标题
+        - 点击Add SSH key按钮，即可创建成功，本地机器即可通过ssh推送仓库到github上了
 
 - 其他基本配置
 
